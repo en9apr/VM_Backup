@@ -1,0 +1,442 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Homework 3 &mdash; Coursera Edition 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="author" title="About these documents" href="about.html" />
+    <link rel="top" title="Coursera Edition 1.0 documentation" href="index.html" /> 
+  </head>
+  <body>
+
+<div style="background-color: #F0D576; text-align: left; padding: 10px 10px 15px 15px">
+<table>
+<tr>
+<td>
+<a href="http://www.amath.washington.edu/"><img src="_static/uwamath.gif" border="0" alt="UW AMath"/></a>
+</td>
+<td>
+<font size=5> High Performance Scientific Computing</font>
+<br>&nbsp;<br>
+<font size=5> Coursera Edition</font>
+</td>
+</tr>
+</table>
+</div>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html"><font color="#39275b">Contents</font></a>|&nbsp;</li>
+        <li><a href="biblio.html"><font color="#39275b">Bibliography</font></a>|&nbsp;</li>
+
+ 
+      </ul>
+    </div>
+
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/homework3.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="homework-3">
+<span id="homework3"></span><h1>Homework 3<a class="headerlink" href="#homework-3" title="Permalink to this headline">¶</a></h1>
+<p>The goals of this homework are to:</p>
+<ul class="simple">
+<li>Learn more about &#8220;best practices in scientific computing&#8221;.</li>
+<li>Get more experience writing Python code and tests.</li>
+<li>Get some experience with Fortran code.</li>
+</ul>
+<ol class="arabic">
+<li><p class="first"><strong>Reading assignment</strong></p>
+<p>Download and read the paper <a class="reference external" href="http://arxiv.org/abs/1210.0530">Best Practices for Scientific Computing</a> by
+G. Wilson, D. A. Aruliah, C. T. Brown, et. al.
+There is a link to the pdf or postscript versions on the right hand side
+of the arXiv page.</p>
+<p>You should be pleased to find that you are now starting to follow many
+of these best practices, but there are many good tips in the paper that
+have not been covered in lectures.</p>
+<p>Note: If you are not familiar with the <a class="reference external" href="http://arxiv.org/">arXiv</a> you
+might want to explore the wide range of preprints and publications that
+authors have posted to make them freely available.</p>
+</li>
+<li><p class="first"><strong>Programming assignments</strong>
+You should create a new subdirectory <cite>homework3</cite> (of the same private
+repository you have used for previous  homeworks).
+Develop your code for the problems below in this directory
+and feel free to commit as
+often as you like, it will help you recover from blunders.</p>
+</li>
+<li><p class="first">Recall that Newton&#8217;s method for finding the root of a nonlinear function
+<span class="math">\(f(x)\)</span> consists of choosing an initial guess <span class="math">\(x_0\)</span> and then
+iterating via:</p>
+<div class="math">
+\[x_{k+1} = x_k - \frac{f(x_k)}{f'(x_k)}\]</div>
+<p>The module <cite>mysqrt.py</cite> developed in lectures and found in
+<cite>$UWHPSC/lectures/lecture6</cite>  was a special case of this
+for the function <span class="math">\(f(x) = x^2 - a\)</span> for some <span class="math">\(a\)</span>, in which
+case it converges to <span class="math">\(\sqrt{a}\)</span>.  (Slightly different notation was
+used there.)</p>
+<p>The section <a class="reference internal" href="special_functions.html#special-newton"><em>Newton&#8217;s method for the square root</em></a> shows a graphical description of how
+Newton&#8217;s method works.</p>
+<p>The section <a class="reference internal" href="fortran_newton.html#fortran-newton"><em>Fortran example for Newton&#8217;s method</em></a> shows the Fortran code for
+implementing something that is very similar to what you are first asked to
+do in Python, so you might first look at the main Newton iteration loop
+in that code if you are not sure how to proceed with this programming.</p>
+<p>Write a Python module <cite>newton.py</cite> that contains
+a function <cite>solve</cite> that takes the following inputs:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>fvals</cite>, a function that returns the values of <span class="math">\(f(x)\)</span> and
+<span class="math">\(f'(x)\)</span> for any input <span class="math">\(x\)</span> (see the example below),</li>
+<li><cite>x0</cite>, the initial guess,</li>
+<li><cite>debug</cite>, an optional argument with default <cite>False</cite>.</li>
+</ul>
+</div></blockquote>
+<p>The function should return a tuple consisting of the final iterate
+(the approximation to the root determined) and the number of iterations
+taken.</p>
+<p>The module should also contain the following test:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="highlight"><pre><span class="c"># $UWHPSC/codes/homework3/test_code.py </span>
+<span class="c"># To include in newton.py</span>
+
+<span class="k">def</span> <span class="nf">fvals_sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return f(x) and f&#39;(x) for applying Newton to find a square root.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mf">4.</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="mf">2.</span><span class="o">*</span><span class="n">x</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="n">fp</span>
+
+<span class="k">def</span> <span class="nf">test1</span><span class="p">(</span><span class="n">debug_solve</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Test Newton iteration for the square root with different initial</span>
+<span class="sd">    conditions.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sqrt</span>
+    <span class="k">for</span> <span class="n">x0</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">100.</span><span class="p">]:</span>
+        <span class="k">print</span> <span class="s">&quot; &quot;</span>  <span class="c"># blank line</span>
+        <span class="n">x</span><span class="p">,</span><span class="n">iters</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">fvals_sqrt</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="n">debug_solve</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">&quot;solve returns x = </span><span class="si">%22.15e</span><span class="s"> after </span><span class="si">%i</span><span class="s"> iterations &quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">iters</span><span class="p">)</span>
+        <span class="n">fx</span><span class="p">,</span><span class="n">fpx</span> <span class="o">=</span> <span class="n">fvals_sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">&quot;the value of f(x) is </span><span class="si">%22.15e</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">fx</span>
+        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mf">2.</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-14</span><span class="p">,</span> <span class="s">&quot;*** Unexpected result: x = </span><span class="si">%22.15e</span><span class="s">&quot;</span>  <span class="o">%</span> <span class="n">x</span>
+</pre></div>
+</td></tr></table></div>
+<p>Note that the definition of <cite>fvals_sqrt</cite> illustrates how to return a
+tuple of values <cite>(f,fp)</cite>  The parentheses are optional in defining this
+tuple and are not used in the code above, but line 10 could also say
+<cite>return (f,fp)</cite>.  Similarly, line 22 could say <cite>(fx,fpx) = ...</cite>.</p>
+<p><strong>Convergence test.</strong> The example in <cite>mysqrt.py</cite> checked the magnitude
+of the change between one iteration and the next to test for
+convergence.  In your version, instead check the value of <span class="math">\(f(x_k)\)</span>
+and stop iterating when <span class="math">\(|f(x_k)| &lt; 10^{-14}\)</span>.</p>
+<p>This does not always guarantee that the value of <span class="math">\(x_k\)</span> is within
+<cite>1e-14</cite> of the true root of the function, but works well unless
+<span class="math">\(f'(x)\)</span> is very small at the root.</p>
+<p>Do your iteration in a loop that takes at most <cite>maxiter = 20</cite>
+iterations.</p>
+<p><strong>Sample output.</strong>
+If your code is written properly, running this test should give the
+following output:</p>
+<div class="highlight-python"><pre>In [19]: import newton
+
+In [20]: newton.test1()
+
+solve returns x =  2.000000000000002e+00 after 5 iterations
+the value of f(x) is  8.881784197001252e-15
+
+solve returns x =  2.000000000000000e+00 after 0 iterations
+the value of f(x) is  0.000000000000000e+00
+
+solve returns x =  2.000000000000000e+00 after 10 iterations
+the value of f(x) is  0.000000000000000e+00</pre>
+</div>
+<p>With the debug option turned on it should print:</p>
+<div class="highlight-python"><pre>In [21]: newton.test1(debug_solve=True)
+
+Initial guess: x =  1.000000000000000e+00
+After 1 iterations, x =  2.500000000000000e+00
+After 2 iterations, x =  2.050000000000000e+00
+After 3 iterations, x =  2.000609756097561e+00
+After 4 iterations, x =  2.000000092922295e+00
+After 5 iterations, x =  2.000000000000002e+00
+solve returns x =  2.000000000000002e+00 after 5 iterations
+the value of f(x) is  8.881784197001252e-15
+
+Initial guess: x =  2.000000000000000e+00
+solve returns x =  2.000000000000000e+00 after 0 iterations
+the value of f(x) is  0.000000000000000e+00
+
+Initial guess: x =  1.000000000000000e+02
+After 1 iterations, x =  5.002000000000000e+01
+After 2 iterations, x =  2.504998400639744e+01
+After 3 iterations, x =  1.260483237353546e+01
+After 4 iterations, x =  6.461085492374608e+00
+After 5 iterations, x =  3.540088255585130e+00
+After 6 iterations, x =  2.335001794270128e+00
+After 7 iterations, x =  2.024031288207058e+00
+After 8 iterations, x =  2.000142661533015e+00
+After 9 iterations, x =  2.000000005087716e+00
+After 10 iterations, x =  2.000000000000000e+00
+solve returns x =  2.000000000000000e+00 after 10 iterations
+the value of f(x) is  0.000000000000000e+00</pre>
+</div>
+<p>Note that the statements printed are somewhat different than in the
+example <cite>mysqrt.py</cite> and printed at different points so you will need to
+think about how to implement this properly.</p>
+<p>The formatting used for the floats is <cite>%22.15e</cite>.</p>
+</li>
+<li><p class="first">The plot below shows two functions <span class="math">\(g_1(x) = \sin(x)\)</span>
+and <span class="math">\(g_2(x) = 1 - x^2\)</span>.  These two functions intersect at only two
+points as indicated by the black dots.</p>
+<img alt="_images/intersections1.png" src="_images/intersections1.png" style="width: 10cm;" />
+<p>Finding the intersections
+requires solving <span class="math">\(\sin(x) = 1 - x^2\)</span>, or equivalently solving for
+zeros of the function <span class="math">\(f(x) = g_1(x) - g_2(x).\)</span>
+This can be done using Newton&#8217;s method.  Which zero is found depends on
+the starting guess <span class="math">\(x_0\)</span>.  For some starting guesses the method
+might not converge at all, but if we start close enough to one of the
+zeros, the method will converge to that zero.</p>
+<p>A program written to do this might produce the following output:</p>
+<div class="highlight-python"><pre>With initial guess x0 = -5.000000000000000e-01,
+      solve returns x = -1.409624004002596e+00 after 9 iterations
+
+With initial guess x0 =  5.000000000000000e-01,
+      solve returns x =  6.367326508052821e-01 after 4 iterations</pre>
+</div>
+<p>The goal of this problem is to produce such a program in Python and
+to produce similar output and plot for a different set of functions:
+<span class="math">\(g_1(x) = x\cos(\pi x)\)</span> and <span class="math">\(g_2(x) = 1 - 0.6 x^2\)</span>.</p>
+<p>Start by plotting these functions over the interval <span class="math">\(-10 \leq x
+\leq 10\)</span> from an interactive IPython session and then use the zoom feature
+on the plot to get initial guess for each intersection.  Note: you
+should see that there are 4 intersections to be found.</p>
+<p>Then write a Python script to set up this problem and solve using
+the <cite>newton.solve</cite> function you wrote earlier.  Your script should
+be named <cite>intersections.py</cite> and should
+import the <cite>newton</cite> module or at least:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">newton</span> <span class="kn">import</span> <span class="n">solve</span>
+</pre></div>
+</div>
+<p>The output of your script
+should have the same form as the example shown above, with the <cite>x0</cite> and
+<cite>x</cite> values formatted as <cite>%22.15e</cite>.  Of course there should be 4 sets of
+output instead of two, finding the 4 distinct intersections.</p>
+<p>The script should also produce a plot of the two functions over the
+interval <span class="math">\(-5 \leq x \leq 5\)</span> with the 4 intersections marked with
+black dots, and save this plot as <cite>intersections.png</cite>.
+<strong>You do not need to commit `intersections.png` to your git repository,
+but the code should create it when run.</strong></p>
+<p>Plotting hints:</p>
+<ul class="simple">
+<li><cite>plot(x,y,&#8217;ko&#8217;)</cite> plots black dots at points specified by the arrays
+<cite>x,y</cite>.</li>
+<li>The matplotlib <cite>legend</cite> command can be used to add the legend
+indicating which curve is <cite>g1</cite> and which is <cite>g2</cite>.</li>
+</ul>
+</li>
+<li><p class="first">Starting with the Fortran code in <cite>$UWHPSC/codes/fortran/newton</cite> (see
+also <a class="reference internal" href="fortran_newton.html#fortran-newton"><em>Fortran example for Newton&#8217;s method</em></a>), modify this code to solve the intersection
+problem described above to compute the four intersection points, with
+output format the same as from the Python version.</p>
+<p>You do <strong>not</strong> have to produce plots for this part, which is not
+possible to do directly from Fortran.</p>
+<p>Create a new program <cite>intersections.f90</cite> with the main program.</p>
+<p>Put the new functions you need to define in the <cite>functions.f90</cite> module.
+Leave the existing functions <cite>f_sqrt</cite> and <cite>fprime_sqrt</cite> in this module
+(so the new ones will need different names).</p>
+<p><strong>Note:</strong> When values of <cite>f(x)</cite> are down at the level of rounding error,
+the actual value produced may be slightly different between the Fortran
+and Python versions, or even between the Fortran versions when run on
+different machines (or on the VM).  Sometimes values are stored in
+registers with additional precision beyond standard double precision
+and may lead to different results.</p>
+</li>
+<li><p class="first">Modify the <cite>Makefile</cite> from <cite>$UWHPSC/codes/fortran/Makefile</cite> so that typing:</p>
+<div class="highlight-python"><pre>$ make intersections</pre>
+</div>
+<p>runs the code that prints out the four intersection points.
+Typing:</p>
+<div class="highlight-python"><pre>$ make test1</pre>
+</div>
+<p>should still work too.  Note that this means you may want to define
+a new macro such as <cite>OBJECTS2</cite> that is the list of object files needed
+to create <cite>intersections.exe</cite></p>
+</li>
+<li><p class="first">Create subdirectory <cite>homework3/problem7</cite> with modified files for this part of the assignment.</p>
+<p>In the original version of <cite>newton.f90</cite>, the module parameter   <cite>maxiter</cite> was set to 20.
+Change it to 40 in this version since convergence will be slower for the problem below.</p>
+<p>In the original version of <cite>newton.f90</cite>, the module parameter   <cite>tol</cite> is used for the
+convergence test.  Turn this into a module <strong>variable</strong> that can be set in the calling program.
+You will want the lines:</p>
+<div class="highlight-python"><pre>real(kind=8) :: tol
+save</pre>
+</div>
+<p>in the <cite>newton.f90</cite> module and then experiment with one of your test
+programs to make sure you can adjust it in a main program.</p>
+<p>Add a new function <cite>f_quartic</cite> and derivative <cite>fprime_quartic</cite> to the
+<cite>functions.f90</cite> file that can be used to solve for a zero of the quartic
+polynomial <span class="math">\(f(x) = (x-1)^4 - \epsilon\)</span>.  This has two real zeros
+<span class="math">\(1 \pm \epsilon^{1/4}\)</span>.</p>
+<p>Make <cite>epsilon</cite> a module variable that can
+be set in the calling program  to store the desired value of
+<span class="math">\(epsilon\)</span>.</p>
+<p>Write a test program <cite>test_quartic.f90</cite> that uses these modules and
+tests the converge for different values of <cite>epsilon</cite> and <cite>tol</cite> by use of a double loop.
+For each value of <cite>epsilon</cite> test three different convergence tolerances, in order to
+produce a table that looks like this:</p>
+<div class="highlight-python"><pre>Starting with initial guess  4.000000000000000E+00
+
+     epsilon        tol    iters          x                 f(x)        x-xstar
+    1.000E-04    1.000E-05  13   1.101498872527709E+00    6.132E-06    1.499E-03
+    1.000E-04    1.000E-10  15   1.100000016203564E+00    6.481E-11    1.620E-08
+    1.000E-04    1.000E-14  16   1.100000000000004E+00    1.544E-17    3.775E-15
+
+    1.000E-08    1.000E-05  14   1.053463944233586E+00    8.160E-06    4.346E-02
+    1.000E-08    1.000E-10  22   1.010003356315204E+00    1.343E-11    3.356E-06
+    1.000E-08    1.000E-14  23   1.010000001688783E+00    6.755E-15    1.689E-09
+
+    1.000E-12    1.000E-05  14   1.053453845050789E+00    8.164E-06    5.245E-02
+    1.000E-12    1.000E-10  24   1.003015822721237E+00    8.172E-11    2.016E-03
+    1.000E-12    1.000E-14  30   1.001000342626557E+00    1.371E-15    3.426E-07</pre>
+</div>
+<p>Note that in addition to printing out <cite>x</cite> and <cite>f(x)</cite> it prints out the error <cite>x - xstar</cite>
+where <cite>xstar</cite> is the true solution it is converging towards.  You can use the print statements
+below to get the same output format:</p>
+<div class="highlight-python"><pre>print *, '    epsilon        tol    iters          x                 f(x)        x-xstar'</pre>
+</div>
+<p>for the header before your loops and then for each <cite>epsilon, tol</cite> combination:</p>
+<div class="highlight-python"><pre>   print 11, epsilon, tol, iters, x, fx, x-xstar
+11 format(2es13.3, i4, es24.15, 2es13.3)</pre>
+</div>
+<p>(The <em>es</em> format in Fortran specifies to use exponential notation with the leading digit being
+nonzero, similar to the Python format.)</p>
+<p>Note that <cite>f(x)</cite> being small does not necessarily guarantee that the error is equally small!
+As a result in most lines in this table the error is larger than <cite>tol</cite>.</p>
+<p>This function has very small slope near the zero, especially when <cite>epsilon</cite> is small.
+In this case using a convergence criterion that is based on the size of the Newton step
+taken would be a better test for the degree of convergence.  You may want to experiment with
+this if you wish, but this is not required.  You might also want to plot this function near the
+root if you are having a hard time visualizing this.</p>
+<p>Make a modified version of the <cite>Makefile</cite> in this directory so that:</p>
+<div class="highlight-python"><pre>$ make test_quartic</pre>
+</div>
+<p>will compile and run this code to produce a table like the one above.</p>
+</li>
+</ol>
+<p>At the end, your homework3 directory should contain:</p>
+<blockquote>
+<div><ul class="simple">
+<li><cite>newton.py</cite> with your Newton code and tests</li>
+<li><cite>intersections.py</cite> with the code to solve the intersection problem and
+create plots</li>
+<li><cite>newton.f90</cite></li>
+<li><cite>functions.f90</cite></li>
+<li><cite>intersections.f90</cite></li>
+<li><cite>test1.f90</cite>  (unchanged, but &#8220;make test1&#8221; should still work)</li>
+<li><cite>Makefile</cite>  (modified to add &#8220;make intersections&#8221; option)</li>
+<li><cite>problem7/newton.f90</cite></li>
+<li><cite>problem7/functions.f90</cite></li>
+<li><cite>problem7/test_quartic.f90</cite></li>
+<li><cite>problem7/Makefile</cite>  (modified to add a &#8220;make test_quartic&#8221; option that produces the desired output)</li>
+</ul>
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html"><font color="#39275b">Contents</font></a>|&nbsp;</li>
+        <li><a href="biblio.html"><font color="#39275b">Bibliography</font></a>|&nbsp;</li>
+
+ 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Randall J. LeVeque, CC BY.
+      Last updated on Aug 08, 2014.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
