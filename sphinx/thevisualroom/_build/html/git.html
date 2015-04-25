@@ -105,7 +105,7 @@
 <div class="section" id="how-to-put-a-directory-under-version-control">
 <h2><a class="toc-backref" href="#id2">1.2. How to put a directory under version control?</a><a class="headerlink" href="#how-to-put-a-directory-under-version-control" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Firstly create a repository in GitHub</li>
+<li>Firstly create a repository in GitHub (it must be public - unless you want to pay)</li>
 <li>cd into the directory you want under version control</li>
 </ul>
 <table border="1" class="docutils">
@@ -119,28 +119,39 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><div class="first last highlight-python"><pre>$ git init</pre>
+<tr class="row-even"><td><div class="first last highlight-python"><pre>$ gedit README.md</pre>
+</div>
+</td>
+<td>Create a readme file (add some text to this)</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-python"><pre>$ git init</pre>
 </div>
 </td>
 <td>Initilises git</td>
 </tr>
-<tr class="row-odd"><td><div class="first last highlight-python"><pre>$ git add -A</pre>
+<tr class="row-even"><td><div class="first last highlight-python"><pre>$ git add README.md</pre>
 </div>
 </td>
 <td>Create a dummy file. Add all changes</td>
 </tr>
-<tr class="row-even"><td><div class="first last highlight-python"><pre>$ git commit -m "The new changes are identified by this sentence"</pre>
+<tr class="row-odd"><td><div class="first last highlight-python"><pre>$ git commit -m "First commit"</pre>
 </div>
 </td>
 <td>Commit the changes</td>
 </tr>
-<tr class="row-odd"><td><div class="first last highlight-python"><pre>$ git remote add origin https://github.com/en9apr/sphinx.git</pre>
+<tr class="row-even"><td><div class="first last highlight-python"><pre>$ git remote add origin https://github.com/en9apr/VM_Backup.git</pre>
 </div>
 </td>
 <td>Adds the origin to a github respository</td>
 </tr>
+<tr class="row-odd"><td><div class="first last highlight-python"><pre>$ git push -u origin master</pre>
+</div>
+</td>
+<td>Pushes the changes from the master to the origin</td>
+</tr>
 </tbody>
 </table>
+<p>You can now add new files and repeat the add, commit and push stages.</p>
 </div>
 <div class="section" id="how-to-change-the-origin">
 <h2><a class="toc-backref" href="#id3">1.3. How to change the origin?</a><a class="headerlink" href="#how-to-change-the-origin" title="Permalink to this headline">¶</a></h2>

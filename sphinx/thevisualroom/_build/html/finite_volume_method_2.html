@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>2. Conservative Discretisation &mdash; The Visual Room</title>
+    <title>1.9.2. Conservative Discretisation &mdash; The Visual Room</title>
     
     <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -30,22 +30,22 @@
     <script type="text/javascript" src="_static/theme_extras.js"></script>
     <link rel="top" title="The Visual Room" href="index.html" />
     <link rel="up" title="1. CFD Theory" href="barba_cfd_theory.html" />
-    <link rel="next" title="3. 2D Finite Volume Method: Spatial and Numerical Discretisation" href="finite_volume_method_3.html" />
-    <link rel="prev" title="1. Advantages of The Finite Volume Method" href="finite_volume_method_1.html" /> 
+    <link rel="next" title="1.9.3. 2D Finite Volume Method: Spatial and Numerical Discretisation" href="finite_volume_method_3.html" />
+    <link rel="prev" title="1.9.1. Advantages of The Finite Volume Method" href="finite_volume_method_1.html" /> 
   </head>
   <body>
       <div class="header"><h1 class="heading"><a href="index.html">
           <span>The Visual Room</span></a></h1>
-        <h2 class="heading"><span>2. Conservative Discretisation</span></h2>
+        <h2 class="heading"><span>1.9.2. Conservative Discretisation</span></h2>
       </div>
       <div class="topnav">
       
         <p>
-        «&#160;&#160;<a href="finite_volume_method_1.html">1. Advantages of The Finite Volume Method</a>
+        «&#160;&#160;<a href="finite_volume_method_1.html">1.9.1. Advantages of The Finite Volume Method</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="finite_volume_method_3.html">3. 2D Finite Volume Method: Spatial and Numerical Discretisation</a>&#160;&#160;»
+        <a href="finite_volume_method_3.html">1.9.3. 2D Finite Volume Method: Spatial and Numerical Discretisation</a>&#160;&#160;»
         </p>
 
       </div>
@@ -53,7 +53,7 @@
         
         
   <div class="section" id="conservative-discretisation">
-<h1>2. Conservative Discretisation<a class="headerlink" href="#conservative-discretisation" title="Permalink to this headline">¶</a></h1>
+<h1>1.9.2. Conservative Discretisation<a class="headerlink" href="#conservative-discretisation" title="Permalink to this headline">¶</a></h1>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#definition-of-a-conservation-law" id="id3">Definition of a Conservation Law</a><ul>
@@ -72,7 +72,7 @@
 </ul>
 </div>
 <div class="section" id="definition-of-a-conservation-law">
-<h2><a class="toc-backref" href="#id3">2.1. Definition of a Conservation Law</a><a class="headerlink" href="#definition-of-a-conservation-law" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">1.9.2.1. Definition of a Conservation Law</a><a class="headerlink" href="#definition-of-a-conservation-law" title="Permalink to this headline">¶</a></h2>
 <p>Recall - what is a conservation law?</p>
 <p>&#8220;Conservation means the <strong>variation</strong> of a conserved (intensive) flow quantity within a given volume is due to the <strong>net effect</strong> of some <strong>internal sources</strong> and the amount of that quantity which is <strong>crossing the boundary surface</strong>&#8220;</p>
 <p>Essentially we are looking at the net effect of:</p>
@@ -81,7 +81,7 @@
 <li>Fluxes</li>
 </ul>
 <div class="section" id="how-to-identify-fluxes">
-<h3><a class="toc-backref" href="#id4">2.1.1. How to Identify Fluxes</a><a class="headerlink" href="#how-to-identify-fluxes" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id4">How to Identify Fluxes</a><a class="headerlink" href="#how-to-identify-fluxes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fluxes appear exclusively under the <strong>gradient operator</strong> - the flux is the only spatial derivative that appears in the equation</li>
 <li>This is a way to recognise if flux is conserved - <strong>look at the gradient operator</strong> - can you group the spatial derivatives under a gradient operator, so that the fluxes have <strong>divergence</strong> - i.e. a measure of &#8220;outgoingness&#8221;?</li>
@@ -89,14 +89,14 @@
 </ul>
 </div>
 <div class="section" id="how-to-identify-sources">
-<h3><a class="toc-backref" href="#id5">2.1.2. How to Identify Sources</a><a class="headerlink" href="#how-to-identify-sources" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id5">How to Identify Sources</a><a class="headerlink" href="#how-to-identify-sources" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Sources are usually scalars in one direction and don&#8217;t usually have divergence, e.g. <strong>gravity</strong>, <strong>pressure gradient</strong></li>
 </ul>
 </div>
 </div>
 <div class="section" id="differential-discretisation">
-<h2><a class="toc-backref" href="#id6">2.2. Differential Discretisation</a><a class="headerlink" href="#differential-discretisation" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">1.9.2.2. Differential Discretisation</a><a class="headerlink" href="#differential-discretisation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>The differential form requires the fluxes to be <strong>differentiable</strong> - this is not always satisfied, this may introduce impossible solutions.</li>
 <li>Discontinuities introduce infinite gradient, e.g.</li>
@@ -110,9 +110,9 @@
 </div></blockquote>
 </div>
 <div class="section" id="id1">
-<h2><a class="toc-backref" href="#id7">2.3. Conservative Discretisation</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">1.9.2.3. Conservative Discretisation</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="general-form-of-a-conservation-law">
-<h3><a class="toc-backref" href="#id8">2.3.1. General Form of a Conservation Law</a><a class="headerlink" href="#general-form-of-a-conservation-law" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id8">General Form of a Conservation Law</a><a class="headerlink" href="#general-form-of-a-conservation-law" title="Permalink to this headline">¶</a></h3>
 <div class="math">
 \[{{\partial \over \partial t} \int_{\Omega} U d \Omega} + \oint_{S} \mathbf{F} \cdot d\mathbf{S} = \int_{\Omega} Q d \Omega\]</div>
 <p>where:</p>
@@ -124,7 +124,7 @@
 <p>i.e. the quantity <span class="math">\(U\)</span> only depends on the <strong>surface values</strong> of the fluxes</p>
 </div>
 <div class="section" id="id2">
-<h3><a class="toc-backref" href="#id9">2.3.2. Conservative Discretisation</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">Conservative Discretisation</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p><span class="math">\(\Omega\)</span> divided into <span class="math">\(\Omega_1\)</span>, <span class="math">\(\Omega_2\)</span> and <span class="math">\(\Omega_3\)</span>:</p>
 <p>For each subvolume:</p>
 <div class="math">
@@ -139,7 +139,7 @@
 </div>
 </div>
 <div class="section" id="example-of-conservative-discretisation">
-<h3><a class="toc-backref" href="#id10">2.3.3. Example of Conservative Discretisation</a><a class="headerlink" href="#example-of-conservative-discretisation" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">Example of Conservative Discretisation</a><a class="headerlink" href="#example-of-conservative-discretisation" title="Permalink to this headline">¶</a></h3>
 <p>Consider a 1D conservation law in conservative form:</p>
 <div class="math">
 \[{\partial u \over \partial t} + {\partial f \over \partial x} = q\]</div>
@@ -165,7 +165,7 @@
 <p>The flux of <a href="#equation-4">(4)</a> and <a href="#equation-5">(5)</a> are identical, but the difference is that the flow quantity and source terms are <strong>averaged over three mesh points</strong> in <a href="#equation-4">(4)</a></p>
 </div>
 <div class="section" id="example-of-non-conservative-discretisation">
-<h3><a class="toc-backref" href="#id11">2.3.4. Example of Non-Conservative Discretisation</a><a class="headerlink" href="#example-of-non-conservative-discretisation" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">Example of Non-Conservative Discretisation</a><a class="headerlink" href="#example-of-non-conservative-discretisation" title="Permalink to this headline">¶</a></h3>
 <p>Consider a 1D conservation law in conservative form:</p>
 <div class="math">
 \[{\partial u \over \partial t} + a(u){\partial u \over \partial x} = q\]</div>
@@ -216,11 +216,11 @@
       <div class="bottomnav">
       
         <p>
-        «&#160;&#160;<a href="finite_volume_method_1.html">1. Advantages of The Finite Volume Method</a>
+        «&#160;&#160;<a href="finite_volume_method_1.html">1.9.1. Advantages of The Finite Volume Method</a>
         &#160;&#160;::&#160;&#160;
         <a class="uplink" href="index.html">Contents</a>
         &#160;&#160;::&#160;&#160;
-        <a href="finite_volume_method_3.html">3. 2D Finite Volume Method: Spatial and Numerical Discretisation</a>&#160;&#160;»
+        <a href="finite_volume_method_3.html">1.9.3. 2D Finite Volume Method: Spatial and Numerical Discretisation</a>&#160;&#160;»
         </p>
 
       </div>

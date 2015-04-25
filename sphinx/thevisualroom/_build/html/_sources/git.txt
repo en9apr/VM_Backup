@@ -44,7 +44,7 @@ Commands
 How to put a directory under version control?
 =============================================
 
-* Firstly create a repository in GitHub
+* Firstly create a repository in GitHub (it must be public - unless you want to pay)
 * cd into the directory you want under version control
 
 .. list-table::
@@ -55,25 +55,36 @@ How to put a directory under version control?
      - Meaning
    * - ::
 
+           $ gedit README.md
+
+     - Create a readme file (add some text to this)
+   * - ::
+
            $ git init
 
      - Initilises git
-
    * - ::
 
-           $ git add -A
+           $ git add README.md
 
      - Create a dummy file. Add all changes
    * - ::
 
-           $ git commit -m "The new changes are identified by this sentence"
+           $ git commit -m "First commit"
 
      - Commit the changes
    * - ::
 
-           $ git remote add origin https://github.com/en9apr/sphinx.git
+           $ git remote add origin https://github.com/en9apr/VM_Backup.git
 
      - Adds the origin to a github respository
+   * - ::
+
+           $ git push -u origin master
+
+     - Pushes the changes from the master to the origin
+
+You can now add new files and repeat the add, commit and push stages.
 
 How to change the origin?
 =========================

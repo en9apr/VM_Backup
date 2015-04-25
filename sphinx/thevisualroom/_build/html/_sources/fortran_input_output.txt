@@ -81,12 +81,12 @@ Opening, Closing, Reading from and Writing to Files
      - Meaning
    * - ::
 
-          write(10, '(i10, e22.15)', iostat=write_error, err=10) n, velocity, pressure
+          write(10, '(i10, 2e22.15)', iostat=write_error, err=10) n, velocity, pressure
           
      - **Write list to unit** ``write(unit, format, specifiers) list``
    * - ::
 
-          read(10, '(i10, e22.15)', iostat=read_error, err=20) n, velocity, pressure
+          read(10, '(i10, 2e22.15)', iostat=read_error, err=20) n, velocity, pressure
 
      - **Read list from unit** ``read(unit, format, specifiers) list``
    * - ::
@@ -99,6 +99,22 @@ Opening, Closing, Reading from and Writing to Files
           close(10, iostat=close_error, err=40)
 
      - **Close file** ``close(unit, specifiers)``
+
+
+Format of the File
+==================
+
+Take the following read statement:
+
+::
+
+   read(10, '(i10, 2e22.15)', iostat=read_error, err=20) n, velocity, pressure
+
+The format of the corresponding file must match with comma separated values, i.e.:
+
+::
+
+   1, 200.0, 350.0
 
 
 Format Statements (print, read, write)

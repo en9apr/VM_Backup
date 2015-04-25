@@ -258,14 +258,14 @@ Above a block of code to denote how it does it (never usually need these inline 
 Makefiles
 =========
 
-Example where there is no output file:
+The general form of a make command is as follows. Use a tab character not spaces:
 
 ::
 
    target: dependencies
        <TAB> commands(s) to make target
 
-Use a tab character not spaces
+Example where there is no output file. **It's important to know the dependencies for the module files, as they will compile in that order**, i.e. ``MODULES = functions.mod newton.mod`` implies that the newton module depends on the functions module.
 
 ::
 
@@ -337,6 +337,8 @@ To print to the screen from a Makefile use ``@echo``
 
 Compiling
 =========
+
+**If the Makefile does not compile, you may need to compile separately to see what the errors are in the compilation**
 
 Simple compilation (single file)
 --------------------------------
